@@ -12,7 +12,8 @@
 		<module.draftCompile>true</module.draftCompile>
 		<module.importedPackages>
 			org.junit,
-			*
+			one.utils.concurrent,
+			one.utils.jre
 		</module.importedPackages>
 		<module.exportedPackages>!one.async.tests.internal*,one.async.tests*
 		</module.exportedPackages>
@@ -68,24 +69,7 @@
 			<!-- FOR BUNDLE MANAGEMENT -->
 			<!-- The Maven bundle plugin generates Meta-data required for OSGi -->
 
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<extensions>true</extensions>
-				<version>2.3.6</version>
-				<configuration>
-					<instructions>
-						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-						<Bundle-Version>${project.version}</Bundle-Version>
-						<Import-Package>${module.importedPackages}</Import-Package>
-						<Export-Package>${module.exportedPackages}</Export-Package>
-						<Service-Component>${module.serviceDefinitions}
-						</Service-Component>
-						<Bundle-RequiredExecutionEnvironment>JavaSE-1.6
-						</Bundle-RequiredExecutionEnvironment>
-					</instructions>
-				</configuration>
-			</plugin>
+			
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -130,37 +114,30 @@
 				</executions>
 			</plugin>
 
-			<!-- FOR MAVEN ECLIPSE PLUGIN -->
-			<!-- Dependency Plugin used to copy the dependency JARs into the root 
-				project folder. There the Maven eclipse plugin will add them to the classpath 
-				of PDE projects. -->
 			<plugin>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-
-				</executions>
-			</plugin>
-
-			<!-- Cleanup necessary because of PDE tweaks, clear the project directory -->
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>2.3</version>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<version>2.4.0</version>
 				<configuration>
-					<filesets>
-						<fileset>
-							<directory>${basedir}</directory>
-							<includes>
-								<include>*.jar</include>
-							</includes>
-							<followSymlinks>false</followSymlinks>
-						</fileset>
-					</filesets>
+					<instructions>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Bundle-Version>${project.version}</Bundle-Version>
+						<Import-Package>${module.importedPackages}</Import-Package>
+						<Export-Package>${module.exportedPackages}</Export-Package> 
+						<Service-Component>${module.serviceDefinitions}
+						</Service-Component>
+						<Bundle-RequiredExecutionEnvironment>JavaSE-1.7
+						</Bundle-RequiredExecutionEnvironment>
+					</instructions>
 				</configuration>
 			</plugin>
 
+			
+
 			<!-- Keep the MANIFEST.MF used by eclipse in sync with the MANIFEST.MF 
 				created by the maven bundle plugin -->
-			<plugin>
+			 <plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
 					<execution>
@@ -176,7 +153,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> 
 
 		</plugins>
 
@@ -227,6 +204,7 @@
 				</includes>
 			</resource>
 		</resources>
+
 
 		<extensions>
 			<extension>
