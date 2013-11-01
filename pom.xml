@@ -254,5 +254,5 @@
 		</snapshotRepository>
 	</distributionManagement>
 
- git svn init --prefix=svn/ --username=mroh004 --no-metadata --trunk=trunk --tags=tags --branches=branches https://internal1.nxweb.de/svn/MxModules/mxGWTUtils
+
 </project>
