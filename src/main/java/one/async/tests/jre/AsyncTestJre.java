@@ -3,11 +3,9 @@ package one.async.tests.jre;
 import java.util.ArrayList;
 import java.util.concurrent.TimeoutException;
 
+import de.mxro.concurrency.Concurrency;
 import one.async.tests.AsyncTest;
 import one.async.tests.AsyncTestFactory;
-
-
-import one.utils.concurrent.Concurrency;
 import one.utils.jre.OneUtilsJre;
 
 
