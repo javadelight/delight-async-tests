@@ -1,9 +1,10 @@
 package one.async.tests.jre;
 
+import delight.concurrency.Concurrency;
+
 import java.util.ArrayList;
 import java.util.concurrent.TimeoutException;
 
-import de.mxro.concurrency.Concurrency;
 import one.async.tests.AsyncTest;
 import one.async.tests.AsyncTestFactory;
 import one.utils.jre.OneUtilsJre;

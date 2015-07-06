@@ -1,7 +1,7 @@
 package one.async.tests;
 
-import de.mxro.concurrency.Concurrency;
-import de.mxro.concurrency.factories.TimerFactory;
+import delight.concurrency.Concurrency;
+import delight.concurrency.factories.TimerFactory;
 
 /**
  * Base interface for helper classes to support asynchronous unit tests.
